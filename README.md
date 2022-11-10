@@ -1,19 +1,15 @@
 # Projet formation Dawan en C#/.Net : Jeu RPG à choix multiples
+Pour ce projet, un utilisateur peut se connecter et voir un rôle : joueur ou admin. L'admin a la possibilité d'éditer le jeu, alors que le joueur se créer un personnage pour avancer dans le jeu.
 
-## Objectif 1 : Création d'un joueur / inscription au jeu
-Un joueur doit pouvoir se créer un personnage. Pour cela il a :
-- Id (Int)
-- Pseudo (string)
-- Objects clés (types ObjetsCles)
-- Objets (string - a définir)
+## Objectifs principaux
+- [ ] Un joueur doit pouvoir se connecter/s'inscrire
+- [ ] Il doit ensuite pouvoir se créer un personnage
+- [ ] S'il s'agit d'un admin qui se connecte, il doit accéder à l'édition des situations et réponses
+- [ ] Ajout, suppression et mise à jour des situations et réponses
+- [ ] Un joueur doit pouvoir reprendre son jeu là où il l'avait laissé
 
-## Objectif 2 : Création et récupération des objets clés
-Les objets clés vont permettre de savoir où en est le joueur dans le scénario. Selon s'il a ou non récupéré un objet de quête ou s'il l'a rendu pour récupérer une récompense, on pourra connaître son avancement.
-Objet clé :
-- Id (int)
-- Nom (string)
-- Obtenu (bool : True -> Il a récupéré, False -> Pas encore récupéré)
-
-## Objectif 3 : Ajouts de jobs/rôles et autres options
-- [ ] Créer un système de rôles et jobs pour le joueur et qu'il pourra choisir à la création du personnage.
-- [ ] On pourra aussi envisager un système de combat s'il y a le temps.
+## Objectifs optionnels
+- [ ] Un joueur peut avoir plusieurs personnages et switch entre chaque personnage
+- [ ] Un personnage peut avoir une classe ou un métier (système de classe/job)
+- [ ] Les personnages récupèrent des objets au cours de leur aventure (système d'inventaire)
+- [ ] Les personnages rencontrent des situations de combat (système de combat)
