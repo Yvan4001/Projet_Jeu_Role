@@ -2,6 +2,7 @@
 Pour ce projet, un utilisateur peut se connecter et voir un rôle : joueur ou admin. L'admin a la possibilité d'éditer le jeu, alors que le joueur se créer un personnage pour avancer dans le jeu.
 
 ## Objectifs principaux
+Ces objectifs sont essentiels au projet et devront être fonctionnels à la fin de la formation.
 - [ ] Un joueur doit pouvoir se connecter/s'inscrire
 - [ ] Il doit ensuite pouvoir se créer un personnage
 - [ ] S'il s'agit d'un admin qui se connecte, il doit accéder à l'édition des situations et réponses
@@ -9,6 +10,7 @@ Pour ce projet, un utilisateur peut se connecter et voir un rôle : joueur ou ad
 - [ ] Un joueur doit pouvoir reprendre son jeu là où il l'avait laissé
 
 ## Objectifs optionnels
+Ces objectifs sont secondaires et ne pourront être fait que si les autres objectifs sont tous remplis et si le temps est suffisant.
 - [ ] Un joueur peut avoir plusieurs personnages et switch entre chaque personnage
 - [ ] Un personnage peut avoir une classe ou un métier (système de classe/job)
 - [ ] Les personnages récupèrent des objets au cours de leur aventure (système d'inventaire)
