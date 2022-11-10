@@ -1,5 +1,6 @@
 # Projet formation Dawan en C#/.Net : Jeu RPG à choix multiples
 Pour ce projet, un utilisateur peut se connecter et voir un rôle : joueur ou admin. L'admin a la possibilité d'éditer le jeu, alors que le joueur se créer un personnage pour avancer dans le jeu.
+[Modèle UML](https://drive.google.com/file/d/10OUnHmkcJzL3Hqvg7EST6voLvKtWhuiE/view?usp=sharing)
 
 ## Objectifs principaux
 Ces objectifs sont essentiels au projet et devront être fonctionnels à la fin de la formation.
