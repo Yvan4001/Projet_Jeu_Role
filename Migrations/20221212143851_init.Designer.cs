@@ -24,7 +24,7 @@ namespace Projet_Jeu_Role.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Projet_Jeu_Role.Models.Awnser", b =>
+            modelBuilder.Entity("Projet_Jeu_Role.Models.Answer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace Projet_Jeu_Role.Migrations
 
                     b.HasIndex("SituationId");
 
-                    b.ToTable("Awnser");
+                    b.ToTable("Answer");
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Player", b =>
@@ -124,7 +124,7 @@ namespace Projet_Jeu_Role.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Projet_Jeu_Role.Models.Awnser", b =>
+            modelBuilder.Entity("Projet_Jeu_Role.Models.Answer", b =>
                 {
                     b.HasOne("Projet_Jeu_Role.Models.Situation", null)
                         .WithMany("Awnsers")
