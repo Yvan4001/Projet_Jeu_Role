@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projet_Jeu_Role", "Projet_Jeu_Role.csproj", "{C7EEF7D9-7496-4D7D-BBB5-E51C2A20F709}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetMVC", "..\ProjetMVC\ProjetMVC.csproj", "{E5CF1366-0C59-4561-A7F6-9AC665A999D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetMVC", "..\ProjetMVC\ProjetMVC.csproj", "{E5CF1366-0C59-4561-A7F6-9AC665A999D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C7EEF7D9-7496-4D7D-BBB5-E51C2A20F709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7EEF7D9-7496-4D7D-BBB5-E51C2A20F709}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7EEF7D9-7496-4D7D-BBB5-E51C2A20F709}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7EEF7D9-7496-4D7D-BBB5-E51C2A20F709}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5CF1366-0C59-4561-A7F6-9AC665A999D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5CF1366-0C59-4561-A7F6-9AC665A999D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5CF1366-0C59-4561-A7F6-9AC665A999D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
