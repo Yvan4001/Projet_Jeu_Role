@@ -54,7 +54,7 @@ namespace Projet_Jeu_Role.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Awnser",
+                name: "Answer",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -76,14 +76,14 @@ namespace Projet_Jeu_Role.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Awnser_SituationId",
-                table: "Awnser",
+                table: "Answer",
                 column: "SituationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Awnser");
+                name: "Answer");
 
             migrationBuilder.DropTable(
                 name: "Player");
