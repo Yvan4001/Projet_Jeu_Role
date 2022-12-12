@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ProjetMVC.Data;
-using ProjetMVC.Models;
+using Projet_Jeu_Role.Data;
+using Projet_Jeu_Role.Models;
 
-namespace ProjetMVC.Controllers
+namespace Projet_Jeu_Role.Controllers
 {
     public class AwnsersController : Controller
     {

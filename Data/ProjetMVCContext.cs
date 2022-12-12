@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProjetMVC.Models;
+using Projet_Jeu_Role.Models;
 
-namespace ProjetMVC.Data
+namespace Projet_Jeu_Role.Data
 {
     public class ProjetMVCContext : DbContext
     {
