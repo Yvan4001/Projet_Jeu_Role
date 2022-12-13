@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Espace d'administration";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Espace admin</h1>
+</div>
+
+<nav class="nav flex-column">
+    <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Utilisateurs</a>
+    <a class="nav-link" asp-area="" asp-controller="Players" asp-action="Index">Personnages</a>
+    <a class="nav-link" asp-area="" asp-controller="Situations" asp-action="Index">Situations</a>
+    <a class="nav-link" asp-area="" asp-controller="Answers" asp-action="Index">Réponses</a>
+</nav>

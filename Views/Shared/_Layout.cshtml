@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Jeu de rôle</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,21 +18,31 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+
+                    <!--
+                        Navigation
+                        TODO : Afficher quand on est connecté
+                    -->
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
                         </li>
+
+                        <!-- TODO : Afficher quand le user connecté est admin -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Utilisateurs</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Players" asp-action="Index">Personnages</a>
-						</li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Situations" asp-action="Index">Situations</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Admin">Espace d'administration</a>
                         </li>
+
+                    </ul>
+
+                    <!-- 
+                        Partie droite 
+                        TODO : Afficher quand on est connecté
+                    -->
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Answers" asp-action="Index">Réponses</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Mon compte</a>
                         </li>
                     </ul>
                 </div>
