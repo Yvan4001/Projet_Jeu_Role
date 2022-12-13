@@ -14,6 +14,8 @@ namespace Projet_Jeu_Role.Controllers
             _context = context;
         }
 
+        public static bool IsConnected { get; private set; } = false;
+
         // GET: Users
         public async Task<IActionResult> Index()
         {
