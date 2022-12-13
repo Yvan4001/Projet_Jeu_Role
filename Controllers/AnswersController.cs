@@ -17,7 +17,7 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Answers.ToListAsync());
+            return View(await _context.Answers.ToListAsync());
         }
 
         // GET: Answers/Details/5
@@ -136,21 +136,21 @@ namespace Projet_Jeu_Role.Controllers
         {
             if (_context.Answers == null)
             {
-                return Problem("Entity set 'ProjetMVCContext.Awnser'  is null.");
+                return Problem("Entity set 'ProjetMVCContext.Answer'  is null.");
             }
             var answer = await _context.Answers.FindAsync(id);
             if (answer != null)
             {
                 _context.Answers.Remove(answer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnswerExists(int id)
         {
-          return _context.Answers.Any(e => e.Id == id);
+            return _context.Answers.Any(e => e.Id == id);
         }
     }
 }

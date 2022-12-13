@@ -12,8 +12,8 @@ using Projet_Jeu_Role.Data;
 namespace Projet_Jeu_Role.Migrations
 {
     [DbContext(typeof(ProjetMVCContext))]
-    [Migration("20221213113449_correct-user")]
-    partial class correctuser
+    [Migration("20221213134205_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

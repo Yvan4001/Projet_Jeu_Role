@@ -17,7 +17,7 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Situations
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Situations.ToListAsync());
+            return View(await _context.Situations.ToListAsync());
         }
 
         // GET: Situations/Details/5
@@ -143,14 +143,14 @@ namespace Projet_Jeu_Role.Controllers
             {
                 _context.Situations.Remove(situation);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SituationExists(int id)
         {
-          return _context.Situations.Any(e => e.Id == id);
+            return _context.Situations.Any(e => e.Id == id);
         }
     }
 }

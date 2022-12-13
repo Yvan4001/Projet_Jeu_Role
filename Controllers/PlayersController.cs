@@ -17,7 +17,7 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Players
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Players.ToListAsync());
+            return View(await _context.Players.ToListAsync());
         }
 
         // GET: Players/Details/5
@@ -143,14 +143,14 @@ namespace Projet_Jeu_Role.Controllers
             {
                 _context.Players.Remove(player);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PlayerExists(int id)
         {
-          return _context.Players.Any(e => e.Id == id);
+            return _context.Players.Any(e => e.Id == id);
         }
     }
 }
