@@ -15,8 +15,13 @@
 <body>
 @{
   if (!UsersController.IsConnected){
-					<partial name="Login"/>
-    <a asp-action="Create">Create New</a>
+      <div class="row">
+        <div class="col-md-12">
+            <partial name="_Login"/>
+            <a asp-action="Create">Créer un Utilisateur</a>
+        </div>
+      </div>
+
   }
   else
   {
