@@ -17,18 +17,18 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Answer.ToListAsync());
+              return View(await _context.Answers.ToListAsync());
         }
 
         // GET: Answers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Answer == null)
+            if (id == null || _context.Answers == null)
             {
                 return NotFound();
             }
 
-            var answer = await _context.Answer
+            var answer = await _context.Answers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -63,12 +63,12 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Answer == null)
+            if (id == null || _context.Answers == null)
             {
                 return NotFound();
             }
 
-            var answer = await _context.Answer.FindAsync(id);
+            var answer = await _context.Answers.FindAsync(id);
             if (answer == null)
             {
                 return NotFound();
@@ -114,12 +114,12 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Answer == null)
+            if (id == null || _context.Answers == null)
             {
                 return NotFound();
             }
 
-            var answer = await _context.Answer
+            var answer = await _context.Answers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -134,14 +134,14 @@ namespace Projet_Jeu_Role.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Answer == null)
+            if (_context.Answers == null)
             {
                 return Problem("Entity set 'ProjetMVCContext.Awnser'  is null.");
             }
-            var answer = await _context.Answer.FindAsync(id);
+            var answer = await _context.Answers.FindAsync(id);
             if (answer != null)
             {
-                _context.Answer.Remove(answer);
+                _context.Answers.Remove(answer);
             }
             
             await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace Projet_Jeu_Role.Controllers
 
         private bool AnswerExists(int id)
         {
-          return _context.Answer.Any(e => e.Id == id);
+          return _context.Answers.Any(e => e.Id == id);
         }
     }
 }

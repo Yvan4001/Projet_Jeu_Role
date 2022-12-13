@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projet_Jeu_Role.Data;
 
@@ -11,9 +12,10 @@ using Projet_Jeu_Role.Data;
 namespace Projet_Jeu_Role.Migrations
 {
     [DbContext(typeof(ProjetMVCContext))]
-    partial class ProjetMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20221213113013_correct-typo")]
+    partial class correcttypo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,7 +96,7 @@ namespace Projet_Jeu_Role.Migrations
                     b.ToTable("Situations");
                 });
 
-            modelBuilder.Entity("Projet_Jeu_Role.Models.User", b =>
+            modelBuilder.Entity("Projet_Jeu_Role.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
