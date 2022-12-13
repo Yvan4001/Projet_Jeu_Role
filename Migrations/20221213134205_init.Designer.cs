@@ -12,7 +12,7 @@ using Projet_Jeu_Role.Data;
 namespace Projet_Jeu_Role.Migrations
 {
     [DbContext(typeof(ProjetMVCContext))]
-    [Migration("20221212143851_init")]
+    [Migration("20221213134205_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace Projet_Jeu_Role.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AwserContent")
+                    b.Property<string>("AnswerContent")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -49,7 +49,7 @@ namespace Projet_Jeu_Role.Migrations
 
                     b.HasIndex("SituationId");
 
-                    b.ToTable("Answer");
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Player", b =>
@@ -72,7 +72,7 @@ namespace Projet_Jeu_Role.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Player");
+                    b.ToTable("Players");
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Situation", b =>
@@ -93,10 +93,10 @@ namespace Projet_Jeu_Role.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Situation");
+                    b.ToTable("Situations");
                 });
 
-            modelBuilder.Entity("Projet_Jeu_Role.Models.Users", b =>
+            modelBuilder.Entity("Projet_Jeu_Role.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

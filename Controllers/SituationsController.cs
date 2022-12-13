@@ -17,18 +17,18 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Situations
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Situation.ToListAsync());
+            return View(await _context.Situations.ToListAsync());
         }
 
         // GET: Situations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Situation == null)
+            if (id == null || _context.Situations == null)
             {
                 return NotFound();
             }
 
-            var situation = await _context.Situation
+            var situation = await _context.Situations
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (situation == null)
             {
@@ -63,12 +63,12 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Situations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Situation == null)
+            if (id == null || _context.Situations == null)
             {
                 return NotFound();
             }
 
-            var situation = await _context.Situation.FindAsync(id);
+            var situation = await _context.Situations.FindAsync(id);
             if (situation == null)
             {
                 return NotFound();
@@ -114,12 +114,12 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Situations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Situation == null)
+            if (id == null || _context.Situations == null)
             {
                 return NotFound();
             }
 
-            var situation = await _context.Situation
+            var situation = await _context.Situations
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (situation == null)
             {
@@ -134,23 +134,23 @@ namespace Projet_Jeu_Role.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Situation == null)
+            if (_context.Situations == null)
             {
                 return Problem("Entity set 'ProjetMVCContext.Situation'  is null.");
             }
-            var situation = await _context.Situation.FindAsync(id);
+            var situation = await _context.Situations.FindAsync(id);
             if (situation != null)
             {
-                _context.Situation.Remove(situation);
+                _context.Situations.Remove(situation);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SituationExists(int id)
         {
-          return _context.Situation.Any(e => e.Id == id);
+            return _context.Situations.Any(e => e.Id == id);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model Projet_Jeu_Role.Models.Player
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Suppression d'un personnage";
 }
 
 <!DOCTYPE html>
@@ -9,13 +9,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>@ViewData["Title"]</title>
 </head>
 <body>
 
-<h3>Are you sure you want to delete this?</h3>
+    <div class="alert alert-danger" role="alert">
+        <h2 class="alert-heading">Êtes vous sûr de vouloir supprimer cette situation ?</h2>
+        <p>La suppression est une action irréversible. Les données ne seront pas récupérables après suppression.</p>
+    </div>
+
 <div>
-    <h4>Player</h4>
+    <h3>Détails du personnage</h3>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">

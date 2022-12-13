@@ -1,7 +1,7 @@
 ﻿@model Projet_Jeu_Role.Models.Player
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Détails d'un personnage";
 }
 
 <!DOCTYPE html>
@@ -9,12 +9,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>@ViewData["Title"]</title>
 </head>
 <body>
 
 <div>
-    <h4>Player</h4>
+        <h4>@ViewData["Title"]</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">

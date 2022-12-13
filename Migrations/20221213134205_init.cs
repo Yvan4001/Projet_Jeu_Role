@@ -9,7 +9,7 @@ namespace Projet_Jeu_Role.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Player",
+                name: "Players",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,11 +20,11 @@ namespace Projet_Jeu_Role.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Player", x => x.Id);
+                    table.PrimaryKey("PK_Players", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Situation",
+                name: "Situations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -34,7 +34,7 @@ namespace Projet_Jeu_Role.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Situation", x => x.Id);
+                    table.PrimaryKey("PK_Situations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,45 +54,45 @@ namespace Projet_Jeu_Role.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answer",
+                name: "Answers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AwserContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnswerContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SituationIdEnter = table.Column<int>(type: "int", nullable: false),
                     SituationIdExit = table.Column<int>(type: "int", nullable: false),
                     SituationId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Awnser", x => x.Id);
+                    table.PrimaryKey("PK_Answers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Awnser_Situation_SituationId",
+                        name: "FK_Answers_Situations_SituationId",
                         column: x => x.SituationId,
-                        principalTable: "Situation",
+                        principalTable: "Situations",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Awnser_SituationId",
-                table: "Answer",
+                name: "IX_Answers_SituationId",
+                table: "Answers",
                 column: "SituationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Answer");
+                name: "Answers");
 
             migrationBuilder.DropTable(
-                name: "Player");
+                name: "Players");
 
             migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Situation");
+                name: "Situations");
         }
     }
 }
