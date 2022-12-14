@@ -6,5 +6,6 @@
         public string SituationName { get; set; } = string.Empty;
         public string SituationDescription { get; set; } = string.Empty;
         public List<Answer> Answers { get; set; } = new List<Answer>();
+
     }
 }
