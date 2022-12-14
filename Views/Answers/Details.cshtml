@@ -14,11 +14,8 @@
 <body>
 
     <div>
-        <h4>@ViewData["Title"]</h4>
+        <h1>@ViewData["Title"]</h1>
         <hr />
-<div>
-    <h4>Answer</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.AnswerContent)
@@ -39,10 +36,10 @@
             @Html.DisplayFor(model => model.SituationIdExit)
         </dd>
     </dl>
-</div>
-            <div>
-                <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-                <a asp-action="Index">Back to List</a>
-            </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Modifier</a>
+        <a class="btn btn-outline-primary" asp-action="Index">Retour à la liste</a>
+    </div>
 </body>
 </html>
