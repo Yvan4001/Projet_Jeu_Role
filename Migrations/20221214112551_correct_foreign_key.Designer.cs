@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projet_Jeu_Role.Data;
 
@@ -11,9 +12,10 @@ using Projet_Jeu_Role.Data;
 namespace Projet_Jeu_Role.Migrations
 {
     [DbContext(typeof(ProjetMVCContext))]
-    partial class ProjetMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20221214112551_correct_foreign_key")]
+    partial class correct_foreign_key
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,13 +36,13 @@ namespace Projet_Jeu_Role.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SituationEnterId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SituationExitId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SituationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SituationIdEnter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SituationIdExit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -124,16 +126,14 @@ namespace Projet_Jeu_Role.Migrations
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Answer", b =>
                 {
-                    b.HasOne("Projet_Jeu_Role.Models.Situation", "Situation")
-                        .WithMany("Answers")
+                    b.HasOne("Projet_Jeu_Role.Models.Situation", null)
+                        .WithMany("Awnsers")
                         .HasForeignKey("SituationId");
-
-                    b.Navigation("Situation");
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Situation", b =>
                 {
-                    b.Navigation("Answers");
+                    b.Navigation("Awnsers");
                 });
 #pragma warning restore 612, 618
         }

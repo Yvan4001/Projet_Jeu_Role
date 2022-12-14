@@ -17,7 +17,7 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Answers.ToListAsync());
+              return View(await _context.Answers.ToListAsync());
         }
 
         // GET: Answers/Details/5
@@ -49,7 +49,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationIdEnter,SituationIdExit")] Answer answer)
+        public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AnswerContent,SituationIdEnter,SituationIdExit")] Answer answer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
             if (id != answer.Id)
             {
@@ -136,21 +136,21 @@ namespace Projet_Jeu_Role.Controllers
         {
             if (_context.Answers == null)
             {
-                return Problem("Entity set 'ProjetMVCContext.Answer'  is null.");
+                return Problem("Entity set 'ProjetMVCContext.Answers'  is null.");
             }
             var answer = await _context.Answers.FindAsync(id);
             if (answer != null)
             {
                 _context.Answers.Remove(answer);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnswerExists(int id)
         {
-            return _context.Answers.Any(e => e.Id == id);
+          return _context.Answers.Any(e => e.Id == id);
         }
     }
 }
