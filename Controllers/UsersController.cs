@@ -156,13 +156,23 @@ namespace Projet_Jeu_Role.Controllers
           return _context.Users.Any(e => e.Id == id);
         }
 
+        public IActionResult Logout([Bind("Email,Password")] User user)
+        {
+												if (IsConnected)
+												{
+																IsConnected = false;
+																return RedirectToAction("Index", IsConnected);
+												}
+												else
+												{
+																IsConnected = true;
+																return RedirectToAction("Index", IsConnected);
+												}
+								}
+
 								public IActionResult Login(string email, string password, [Bind("Email,Password")] User users)
 								{
-												email = "test@test.com";
-												password = "1234";
-
-												//users = _context.Users.ToList().Select<User>(email, password)
-												if (users.Email == email && users.Password == password)
+												if (!IsConnected)
 												{
 																IsConnected = true;
 																return RedirectToAction("Index", IsConnected);
