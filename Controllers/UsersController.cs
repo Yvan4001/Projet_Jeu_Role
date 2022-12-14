@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Projet_Jeu_Role.Data;
 using Projet_Jeu_Role.Models;
@@ -13,6 +14,8 @@ namespace Projet_Jeu_Role.Controllers
         {
             _context = context;
         }
+
+        public static bool IsConnected { get; private set; } = false;
 
         // GET: Users
         public async Task<IActionResult> Index()
@@ -49,7 +52,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nom,Role")] User users)
+        public async Task<IActionResult> Create([Bind("Nom,Email,Password,Role")] User users)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +84,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Role")] User users)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Email,Password,Role")] User users)
         {
             if (id != users.Id)
             {
@@ -152,5 +155,33 @@ namespace Projet_Jeu_Role.Controllers
         {
           return _context.Users.Any(e => e.Id == id);
         }
-    }
+
+        public IActionResult Logout([Bind("Email,Password")] User user)
+        {
+												if (IsConnected)
+												{
+																IsConnected = false;
+																return RedirectToAction("Index", IsConnected);
+												}
+												else
+												{
+																IsConnected = true;
+																return RedirectToAction("Index", IsConnected);
+												}
+								}
+
+								public IActionResult Login(string email, string password, [Bind("Email,Password")] User users)
+								{
+												if (!IsConnected)
+												{
+																IsConnected = true;
+																return RedirectToAction("Index", IsConnected);
+												}
+												else
+												{
+																IsConnected = false;
+																return RedirectToAction("Index", IsConnected);
+												}
+								}
+				}
 }
