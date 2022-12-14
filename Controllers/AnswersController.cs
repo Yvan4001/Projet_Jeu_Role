@@ -49,7 +49,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationIdEnter,SituationIdExit")] Answer answer)
+        public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace Projet_Jeu_Role.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AnswerContent,SituationIdEnter,SituationIdExit")] Answer answer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
             if (id != answer.Id)
             {
