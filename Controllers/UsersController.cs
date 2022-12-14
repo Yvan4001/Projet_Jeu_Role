@@ -56,9 +56,12 @@ namespace Projet_Jeu_Role.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(users);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (!EmailExist(users.Email))
+                {
+                    _context.Add(users);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(users);
         }
@@ -95,8 +98,15 @@ namespace Projet_Jeu_Role.Controllers
             {
                 try
                 {
-                    _context.Update(users);
-                    await _context.SaveChangesAsync();
+                    if (!EmailExist(users.Email))
+                    {
+																								_context.Update(users);
+																								await _context.SaveChangesAsync();
+																				}
+                    else
+                    {
+                        return View(users);
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -154,6 +164,11 @@ namespace Projet_Jeu_Role.Controllers
         private bool UsersExists(int id)
         {
           return _context.Users.Any(e => e.Id == id);
+        }
+
+        private bool EmailExist(string email)
+        {
+            return _context.Users.Any(e => e.Email == email);
         }
 
         public IActionResult Logout([Bind("Email,Password")] User user)
