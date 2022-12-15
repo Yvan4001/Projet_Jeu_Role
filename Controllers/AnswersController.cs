@@ -29,6 +29,8 @@ namespace Projet_Jeu_Role.Controllers
             }
 
             var answer = await _context.Answers
+                .Include(s => s.SituationEnter)
+                .Include(s => s.SituationExit)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {

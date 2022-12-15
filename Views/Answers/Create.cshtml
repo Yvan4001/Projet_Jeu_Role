@@ -1,49 +1,60 @@
 ﻿@model Projet_Jeu_Role.Models.Answer
 
 @{
-    ViewData["Title"] = "Création d'un personnage";
+	ViewData["Title"] = "Création d'une réponse";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewData["Title"]</title>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewData["Title"]</title>
 </head>
 <body>
 
-    <h1>@ViewData["Title"]</h1>
-    <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AnswerContent" class="control-label"></label>
-                <input asp-for="AnswerContent" class="form-control" />
-                <span asp-validation-for="AnswerContent" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SituationEnterId" class="control-label"></label>
-                <input asp-for="SituationEnterId" class="form-control" />
-                <span asp-validation-for="SituationEnterId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SituationExitId" class="control-label"></label>
-                <input asp-for="SituationExitId" class="form-control" />
-                <span asp-validation-for="SituationExitId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-    </div>
+	<h1>@ViewData["Title"]</h1>
+	<hr />
+	<div class="row">
+		<div class="col-md-4">
+			<form asp-action="Create">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="AnswerContent" class="control-label"></label>
+					<input asp-for="AnswerContent" class="form-control" />
+					<span asp-validation-for="AnswerContent" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="SituationEnterId" class="control-label"></label>
+					<input asp-for="SituationEnterId" class="form-control" />
+					<span asp-validation-for="SituationEnterId" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="SituationExitId" class="control-label"></label>
+					<input asp-for="SituationExitId" class="form-control" />
+					<span asp-validation-for="SituationExitId" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Create" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
 
-    <div>
-        <a class="btn btn-outline-primary" asp-action="Index">Retour à la liste</a>
-    </div>
+	<div>
+		<a class="btn btn-outline-primary" asp-action="Index">Retour à la liste</a>
+	</div>
+
+	<div>
+		@*@{
+			foreach (var item in Model)
+			{
+				<p>
+					@Html.DisplayFor(m => item.AnswerContent)
+				</p>
+			}
+		}*@
+	</div>
 
 </body>
 </html>

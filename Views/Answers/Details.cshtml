@@ -1,7 +1,7 @@
 ﻿@model Projet_Jeu_Role.Models.Answer
 
 @{
-    ViewData["Title"] = "Détails d'un personnage";
+    ViewData["Title"] = "Détails d'une réponse";
 }
 
 <!DOCTYPE html>
@@ -30,16 +30,19 @@
             @Html.DisplayFor(model => model.AnswerContent)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SituationEnterId)
+                Situtation d'entrée
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SituationEnterId)
+            @*@Html.DisplayFor(model => model.SituationEnterId)*@
+            @Html.DisplayFor(model => model.SituationEnter.SituationName)
+
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SituationExitId)
+                Situtation de sortie
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SituationExitId)
+                @*@Html.DisplayFor(model => model.SituationExitId)*@
+                @Html.DisplayFor(model => model.SituationExit.SituationName)
         </dd>
     </dl>
     </div>
