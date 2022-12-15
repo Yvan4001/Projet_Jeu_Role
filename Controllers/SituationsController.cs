@@ -29,17 +29,18 @@ namespace Projet_Jeu_Role.Controllers
             }
 
             var situation = await _context.Situations
+                .Include(s => s.AnswerEnter)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (situation == null)
             {
                 return NotFound();
             }
 
-            situation.Answers.Clear();
-            for(int i = 1; i < situation.Answers.Count; i++)
-            {
-                situation.Answers.Add(situation.Answers[i]);
-            }
+            //situation.Answers.Clear();
+            //for(int i = 0; i < _context.Answers.ToList().Count; i++)
+            //{
+            //    situation.Answers.Add(situation.Answers[i]);
+            //}
             //situation.Answers.Add(_context.Answers.Where(a => a.SituationEnterId == situation.Id).First());
 
             return View(situation);

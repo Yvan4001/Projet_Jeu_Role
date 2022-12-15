@@ -6,13 +6,12 @@ namespace Projet_Jeu_Role.Models
     {
         public int Id { get; set; }
         public string AnswerContent { get; set; } = string.Empty;
-        [ForeignKey("SituationEnterId")]
+
         public int SituationEnterId { get; set; }
+        public virtual Situation? SituationEnter { get; set; }
 
-
-        [ForeignKey("SituationExitId")]
-        public int SituationExitId { get; set; }
-        public virtual Situation? Situation { get; set; }
+        public int? SituationExitId { get; set; }
+        public virtual Situation? SituationExit { get; set; }
 
         public override string ToString()
         {

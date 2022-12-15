@@ -37,15 +37,14 @@ namespace Projet_Jeu_Role.Migrations
                     b.Property<int>("SituationEnterId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SituationExitId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SituationId")
+                    b.Property<int?>("SituationExitId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SituationId");
+                    b.HasIndex("SituationEnterId");
+
+                    b.HasIndex("SituationExitId");
 
                     b.ToTable("Answers");
                 });
@@ -124,16 +123,27 @@ namespace Projet_Jeu_Role.Migrations
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Answer", b =>
                 {
-                    b.HasOne("Projet_Jeu_Role.Models.Situation", "Situation")
-                        .WithMany("Answers")
-                        .HasForeignKey("SituationId");
+                    b.HasOne("Projet_Jeu_Role.Models.Situation", "SituationEnter")
+                        .WithMany("AnswerEnter")
+                        .HasForeignKey("SituationEnterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Situation");
+                    b.HasOne("Projet_Jeu_Role.Models.Situation", "SituationExit")
+                        .WithMany("AnswerExit")
+                        .HasForeignKey("SituationExitId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("SituationEnter");
+
+                    b.Navigation("SituationExit");
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Situation", b =>
                 {
-                    b.Navigation("Answers");
+                    b.Navigation("AnswerEnter");
+
+                    b.Navigation("AnswerExit");
                 });
 #pragma warning restore 612, 618
         }
