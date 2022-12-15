@@ -20,6 +20,21 @@ namespace Projet_Jeu_Role.Controllers
             return View(await _context.Situations.ToListAsync());
         }
 
+								public async Task<IActionResult> Next(int? id)
+        {
+												if(id == null || _context.Situations == null)
+            {
+                return NotFound();
+            }
+
+            var situation = await _context.Situations.FirstOrDefaultAsync(m => m.Id == id);
+												if(situation == null)
+            {
+                return NotFound();
+            }
+            return View(situation);
+        }
+
         // GET: Situations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,6 +81,7 @@ namespace Projet_Jeu_Role.Controllers
             }
             return View(situation);
         }
+
 
         // GET: Situations/Edit/5
         public async Task<IActionResult> Edit(int? id)
