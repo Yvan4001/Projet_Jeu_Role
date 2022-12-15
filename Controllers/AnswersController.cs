@@ -47,9 +47,9 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers/Create
         public IActionResult Create()
         {
-            ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName");
-            ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName");
-            return View();
+												ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName");
+												ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName");
+												return View();
         }
 
         // POST: Answers/Create
@@ -59,14 +59,12 @@ namespace Projet_Jeu_Role.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
-            if (ModelState.IsValid)
+												if (ModelState.IsValid)
             {
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationEnterId);
-            ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationExitId);
             return View(answer);
         }
 

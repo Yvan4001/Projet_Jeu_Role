@@ -12,7 +12,6 @@
 	<title>@ViewData["Title"]</title>
 </head>
 <body>
-
 	<h1>@ViewData["Title"]</h1>
 	<hr />
 	<div class="row">
@@ -25,15 +24,15 @@
 					<span asp-validation-for="AnswerContent" class="text-danger"></span>
 				</div>
 				<div class="form-group">
-					<label asp-for="SituationEnterId" class="control-label"></label>
-					<input asp-for="SituationEnterId" class="form-control" />
-					<input asp-for="SituationEnterId" class="form-control" />
+					<label asp-for="SituationEnterId" class="control-label">Situation d'entrée</label>
+							@Html.DropDownList("SituationEnterId", string.Empty)
+@*					<input asp-for="SituationEnterId" class="form-control" />*@
 					<span asp-validation-for="SituationEnterId" class="text-danger"></span>
-					@Html.DropDownList("SituationName", String.Empty)
 				</div>
 				<div class="form-group">
-					<label asp-for="SituationExitId" class="control-label"></label>
-					<input asp-for="SituationExitId" class="form-control" />
+					<label asp-for="SituationExitId" class="control-label">Situation de sortie</label>
+					@Html.DropDownList("SituationExitId", string.Empty)
+					@*<input asp-for="SituationExitId" class="form-control" />*@
 					<span asp-validation-for="SituationExitId" class="text-danger"></span>
 				</div>
 				<div class="form-group">
