@@ -19,6 +19,12 @@
 		<hr />
 		<dl class="row">
 			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Id)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Id)
+			</dd>
+			<dt class="col-sm-2">
 				@Html.DisplayNameFor(model => model.SituationName)
 			</dt>
 			<dd class="col-sm-10">
@@ -39,12 +45,43 @@
 		<br />
 		<h2>Réponses liées</h2>
 		<hr />
+		<table>
+			<thead>
+				<tr>
+					<th>Contenu de la réponse</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@{
+					foreach (var item in Model.AnswerEnter)
+					{
+
+						<tr>
+							<td>
+								@Html.DisplayFor(m => item.AnswerContent)
+							</td>
+							<td>
+								<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Détails</a>
+								<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
+								<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
+							</td>
+						</tr>
+					}
+				}
+			</tbody>
+		</table>
+
+		<!-- Message d'erreur s'il n'y a pas de réponses associées -->
 		@{
-			foreach (var item in Model.AnswerEnter)
+			if (Model.AnswerEnter.Count == 0)
 			{
-				<p>
-					@Html.DisplayFor(m => item.AnswerContent)
-				</p>
+				<div class="alert alert-secondary" role="alert">
+					<p>
+						Pas de réponses associées à cette situation.
+					</p>
+					<a class="btn btn-primary" asp-area="" asp-controller="Answers" asp-action="Index">Aller aux réponses</a>
+				</div>
 			}
 		}
 	</div>
