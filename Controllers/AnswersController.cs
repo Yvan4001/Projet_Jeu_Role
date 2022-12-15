@@ -17,7 +17,10 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Answers.ToListAsync());
+            return View(await _context.Answers
+              .Include(s => s.SituationEnter)
+              .Include(s => s.SituationExit)
+              .ToListAsync());
         }
 
         // GET: Answers/Details/5
@@ -145,14 +148,14 @@ namespace Projet_Jeu_Role.Controllers
             {
                 _context.Answers.Remove(answer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnswerExists(int id)
         {
-          return _context.Answers.Any(e => e.Id == id);
+            return _context.Answers.Any(e => e.Id == id);
         }
     }
 }
