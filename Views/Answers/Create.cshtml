@@ -27,7 +27,9 @@
 				<div class="form-group">
 					<label asp-for="SituationEnterId" class="control-label"></label>
 					<input asp-for="SituationEnterId" class="form-control" />
+					<input asp-for="SituationEnterId" class="form-control" />
 					<span asp-validation-for="SituationEnterId" class="text-danger"></span>
+					@Html.DropDownList("SituationName", String.Empty)
 				</div>
 				<div class="form-group">
 					<label asp-for="SituationExitId" class="control-label"></label>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projet_Jeu_Role.Data;
 using Projet_Jeu_Role.Models;
@@ -46,6 +47,8 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers/Create
         public IActionResult Create()
         {
+            ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName");
+            ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName");
             return View();
         }
 
@@ -62,6 +65,8 @@ namespace Projet_Jeu_Role.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationEnterId);
+            ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationExitId);
             return View(answer);
         }
 
