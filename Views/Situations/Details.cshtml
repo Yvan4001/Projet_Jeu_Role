@@ -9,45 +9,47 @@
 
 <html>
 <head>
-				<meta name="viewport" content="width=device-width" />
-				<title>@ViewData["Title"]</title>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewData["Title"]</title>
 </head>
 <body>
 
-				<div>
-								<h1>@ViewData["Title"]</h1>
-								<hr />
-								<dl class="row">
-												<dt class="col-sm-2">
+	<div>
+		<h1>@ViewData["Title"]</h1>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-2">
 				@Html.DisplayNameFor(model => model.SituationName)
-												</dt>
-												<dd class="col-sm-10">
+			</dt>
+			<dd class="col-sm-10">
 				@Html.DisplayFor(model => model.SituationName)
-												</dd>
-												<dt class="col-sm-2">
+			</dd>
+			<dt class="col-sm-2">
 				@Html.DisplayNameFor(model => model.SituationDescription)
-												</dt>
-												<dd class="col-sm-10">
+			</dt>
+			<dd class="col-sm-10">
 				@Html.DisplayFor(model => model.SituationDescription)
-												</dd>
-								</dl>
-				</div>
-				<div>
-				    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Modifier la situation</a>
-				</div>
-				<div>
-								<br />
-								<h2>Réponses liées</h2>
-								<hr />
+			</dd>
+		</dl>
+	</div>
+	<div>
+		<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Modifier la situation</a>
+	</div>
+	<div>
+		<br />
+		<h2>Réponses liées</h2>
+		<hr />
 		@{
-			foreach(var item in Model.Answers){
-				@Html.DisplayFor(m => item.AnswerContent)
+			foreach (var item in Model.AnswerEnter)
+			{
+				<p>
+					@Html.DisplayFor(m => item.AnswerContent)
+				</p>
 			}
-
 		}
-				</div>
-				<div>
-								<a class="btn btn-outline-primary" asp-action="Index">Retour à la liste</a>
-				</div>
+	</div>
+	<div>
+		<a class="btn btn-outline-primary" asp-action="Index">Retour à la liste</a>
+	</div>
 </body>
 </html>
