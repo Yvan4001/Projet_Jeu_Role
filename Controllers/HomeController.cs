@@ -28,11 +28,13 @@ namespace Projet_Jeu_Role.Controllers
 
         public IActionResult Player(Situation s)
         {
-            s = _context.Situations.FirstOrDefault();
+            s = _context.Situations
+                .Include(s => s.AnswerEnter)
+                .FirstOrDefault();
 												return View(s);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+								[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
