@@ -8,7 +8,7 @@ namespace Projet_Jeu_Role.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 								private readonly ProjetMVCContext _context;
 
 								public HomeController(ProjetMVCContext context)
@@ -28,7 +28,7 @@ namespace Projet_Jeu_Role.Controllers
 
         public IActionResult Player(Situation s)
         {
-												s = _context.Situations.FirstOrDefault();
+            s = _context.Situations.FirstOrDefault();
 												return View(s);
         }
 
