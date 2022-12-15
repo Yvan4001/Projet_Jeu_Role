@@ -20,23 +20,24 @@ namespace Projet_Jeu_Role.Controllers
             return View(await _context.Situations.ToListAsync());
         }
 
-								public async Task<IActionResult> Next(int? id)
-        {
-												if(id == null || _context.Situations == null)
+								public IActionResult Next(Situation _situation)
+								{
+            try
             {
-                return NotFound();
+                _situation = _context.Situations
+                    .Include(s => s.AnswerEnter)
+                    .Where(s => s.Id == _situation.Id).First();
+            }
+            catch(Exception)
+            {
+                return View("EndGame");
             }
 
-            var situation = await _context.Situations.FirstOrDefaultAsync(m => m.Id == id);
-												if(situation == null)
-            {
-                return NotFound();
-            }
-            return View(situation);
-        }
+												return View(_situation);
+								}
 
-        // GET: Situations/Details/5
-        public async Task<IActionResult> Details(int? id)
+								// GET: Situations/Details/5
+								public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Situations == null)
             {
