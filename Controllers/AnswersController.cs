@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projet_Jeu_Role.Data;
 using Projet_Jeu_Role.Models;
@@ -17,7 +18,10 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Answers.ToListAsync());
+            return View(await _context.Answers
+              .Include(s => s.SituationEnter)
+              .Include(s => s.SituationExit)
+              .ToListAsync());
         }
 
         // GET: Answers/Details/5
@@ -29,6 +33,8 @@ namespace Projet_Jeu_Role.Controllers
             }
 
             var answer = await _context.Answers
+                .Include(s => s.SituationEnter)
+                .Include(s => s.SituationExit)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (answer == null)
             {
@@ -41,7 +47,9 @@ namespace Projet_Jeu_Role.Controllers
         // GET: Answers/Create
         public IActionResult Create()
         {
-            return View();
+												ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName");
+												ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName");
+												return View();
         }
 
         // POST: Answers/Create
@@ -51,7 +59,7 @@ namespace Projet_Jeu_Role.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AnswerContent,SituationEnterId,SituationExitId")] Answer answer)
         {
-            if (ModelState.IsValid)
+												if (ModelState.IsValid)
             {
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
@@ -73,7 +81,9 @@ namespace Projet_Jeu_Role.Controllers
             {
                 return NotFound();
             }
-            return View(answer);
+												ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationEnterId);
+												ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationExitId);
+												return View(answer);
         }
 
         // POST: Answers/Edit/5
@@ -143,14 +153,14 @@ namespace Projet_Jeu_Role.Controllers
             {
                 _context.Answers.Remove(answer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnswerExists(int id)
         {
-          return _context.Answers.Any(e => e.Id == id);
+            return _context.Answers.Any(e => e.Id == id);
         }
     }
 }

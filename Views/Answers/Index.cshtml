@@ -1,58 +1,61 @@
 ﻿@model IEnumerable<Projet_Jeu_Role.Models.Answer>
 
 @{
-    ViewData["Title"] = "Liste des réponses";
+	ViewData["Title"] = "Liste des réponses";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewData["Title"]</title>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewData["Title"]</title>
 </head>
 <body>
-    <h1>@ViewData["Title"]</h1>
-    <hr />
+	<h1>@ViewData["Title"]</h1>
+	<hr />
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AnswerContent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SituationEnterId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SituationExitId)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnswerContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SituationEnterId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SituationExitId)
-            </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Détails</a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
-                    </td>
-        </tr>
-}
-    </tbody>
-    </table>
+	<p>
+		<a asp-action="Create">Create New</a>
+	</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.AnswerContent)
+				</th>
+				<th>Situation d'entrée</th>
+				<th>Situation de sortie</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.AnswerContent)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SituationEnter.SituationName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SituationExit.SituationName)
+					</td>
+					<td>
+						<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Détails</a>
+						<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a>
+						<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Supprimer</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 </body>
 </html>
