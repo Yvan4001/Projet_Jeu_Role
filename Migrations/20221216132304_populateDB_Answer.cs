@@ -4,7 +4,7 @@
 
 namespace Projet_Jeu_Role.Migrations
 {
-    public partial class correctfk : Migration
+    public partial class populateDB_Answer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,6 +77,33 @@ namespace Projet_Jeu_Role.Migrations
                         column: x => x.SituationExitId,
                         principalTable: "Situations",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Situations",
+                columns: new[] { "Id", "SituationDescription", "SituationName" },
+                values: new object[,]
+                {
+                    { 1, "Place du village", "Place du village" },
+                    { 2, "Boulangerie", "Boulangerie" },
+                    { 3, "Mairie", "Mairie" },
+                    { 4, "Maison Johnny", "Maison Johnny" },
+                    { 5, "Maison", "Maison" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "Id", "AnswerContent", "SituationEnterId", "SituationExitId" },
+                values: new object[,]
+                {
+                    { 1, "Aller à la boulangerie", 1, 1 },
+                    { 2, "Aller à la mairie", 1, 1 },
+                    { 3, "Aller au quartier résidentiel", 1, 1 },
+                    { 4, "Aller à la maison manger gateau magique", 1, 1 },
+                    { 5, "Demander un gateau magique", 2, 3 },
+                    { 6, "Aller à la place du village", 2, 2 },
+                    { 7, "Ne rien faire", 2, 2 },
+                    { 8, "Aller à la place du village", 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(

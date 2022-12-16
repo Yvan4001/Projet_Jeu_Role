@@ -47,6 +47,64 @@ namespace Projet_Jeu_Role.Migrations
                     b.HasIndex("SituationExitId");
 
                     b.ToTable("Answers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AnswerContent = "Aller à la boulangerie",
+                            SituationEnterId = 1,
+                            SituationExitId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AnswerContent = "Aller à la mairie",
+                            SituationEnterId = 1,
+                            SituationExitId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AnswerContent = "Aller au quartier résidentiel",
+                            SituationEnterId = 1,
+                            SituationExitId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AnswerContent = "Aller à la maison manger gateau magique",
+                            SituationEnterId = 1,
+                            SituationExitId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AnswerContent = "Demander un gateau magique",
+                            SituationEnterId = 2,
+                            SituationExitId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AnswerContent = "Aller à la place du village",
+                            SituationEnterId = 2,
+                            SituationExitId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AnswerContent = "Ne rien faire",
+                            SituationEnterId = 2,
+                            SituationExitId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AnswerContent = "Aller à la place du village",
+                            SituationEnterId = 2,
+                            SituationExitId = 2
+                        });
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.Player", b =>
@@ -91,6 +149,38 @@ namespace Projet_Jeu_Role.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Situations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            SituationDescription = "Place du village",
+                            SituationName = "Place du village"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            SituationDescription = "Boulangerie",
+                            SituationName = "Boulangerie"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            SituationDescription = "Mairie",
+                            SituationName = "Mairie"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            SituationDescription = "Maison Johnny",
+                            SituationName = "Maison Johnny"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            SituationDescription = "Maison",
+                            SituationName = "Maison"
+                        });
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.User", b =>
