@@ -4,7 +4,7 @@
 
 namespace Projet_Jeu_Role.Migrations
 {
-    public partial class correctfk : Migration
+    public partial class populateDB_Situation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,6 +77,18 @@ namespace Projet_Jeu_Role.Migrations
                         column: x => x.SituationExitId,
                         principalTable: "Situations",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Situations",
+                columns: new[] { "Id", "SituationDescription", "SituationName" },
+                values: new object[,]
+                {
+                    { 1, "Place du village", "Place du village" },
+                    { 2, "Boulangerie", "Boulangerie" },
+                    { 3, "Mairie", "Mairie" },
+                    { 4, "Maison Johnny", "Maison Johnny" },
+                    { 5, "Maison", "Maison" }
                 });
 
             migrationBuilder.CreateIndex(

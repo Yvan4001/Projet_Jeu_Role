@@ -27,6 +27,16 @@ namespace Projet_Jeu_Role.Data
                 .HasForeignKey(s => s.SituationExitId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            
+            modelBuilder.Entity<Situation>()
+                .HasData(
+                new Situation { Id = 1, SituationName = "Place du village", SituationDescription = "Place du village" },
+                new Situation { Id = 2, SituationName = "Boulangerie", SituationDescription = "Boulangerie" },
+                new Situation { Id = 3, SituationName = "Mairie", SituationDescription = "Mairie" },
+                new Situation { Id = 4, SituationName = "Maison Johnny", SituationDescription = "Maison Johnny" },
+                new Situation { Id = 5, SituationName = "Maison", SituationDescription = "Maison" }
+                
+            );
         }
     }
 }

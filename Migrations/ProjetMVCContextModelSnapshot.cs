@@ -91,6 +91,38 @@ namespace Projet_Jeu_Role.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Situations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            SituationDescription = "Place du village",
+                            SituationName = "Place du village"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            SituationDescription = "Boulangerie",
+                            SituationName = "Boulangerie"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            SituationDescription = "Mairie",
+                            SituationName = "Mairie"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            SituationDescription = "Maison Johnny",
+                            SituationName = "Maison Johnny"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            SituationDescription = "Maison",
+                            SituationName = "Maison"
+                        });
                 });
 
             modelBuilder.Entity("Projet_Jeu_Role.Models.User", b =>
