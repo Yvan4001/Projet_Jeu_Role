@@ -81,7 +81,9 @@ namespace Projet_Jeu_Role.Controllers
             {
                 return NotFound();
             }
-            return View(answer);
+												ViewBag.SituationEnterId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationEnterId);
+												ViewBag.SituationExitId = new SelectList(_context.Situations, "Id", "SituationName", answer.SituationExitId);
+												return View(answer);
         }
 
         // POST: Answers/Edit/5
